@@ -1,13 +1,18 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue';
   import HelloWorld from '@/components/HelloWorld.vue';
+  import TaskList from '@/page/taskList/index.vue';
   
-  const currentPage = ref('home');
-  const currentPageComponent = computed(() => {
-    return currentPage.value === 'home'
-      ? { is: HelloWorld, props: { msg: 'Hello' } }
-      : { is: null, props: { msg: '' } };
-  })
+  const pageMap = {
+    home: { is: HelloWorld, props: { msg: 'Hello' } },
+    taskList: { is: TaskList, props: { msg: '' } },
+  }
+
+  type PageKey = keyof typeof pageMap;
+
+  const currentPage = ref<PageKey>('home');
+  const currentPageComponent = computed(() => pageMap[currentPage.value]);
+
 </script>
 
 <template>
@@ -20,7 +25,7 @@
     </a>
   </div>
   <button @click="currentPage='home'">首頁</button>
-  <button @click="currentPage='about'">關於</button>
+  <button @click="currentPage='taskList'">任務管理</button>
   <component
     :is="currentPageComponent.is"
     v-bind="currentPageComponent.props"
