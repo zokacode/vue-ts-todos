@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue';
   import HelloWorld from '@/components/HelloWorld.vue';
-  import TaskList from '@/page/taskList/index.vue';
+  import TaskList from '@/pages/taskList/index.vue';
   
   const pageMap = {
     home: { is: HelloWorld, props: { msg: 'Hello' } },

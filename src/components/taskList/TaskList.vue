@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-  import { useTaskStore } from '@/stores/taskStore';
+  import { useTaskStore } from '@/store/taskStore';
 
   const taskStore = useTaskStore();
 </script>

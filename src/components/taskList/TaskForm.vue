@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   import { ref } from "vue";
-  import { useTaskStore } from "@/stores/taskStore";
+  import { useTaskStore } from "@/store/taskStore";
 
   const title = ref('');
   const taskStore = useTaskStore();
